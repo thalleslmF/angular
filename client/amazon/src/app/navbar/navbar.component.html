@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand lg navbar-dark bg-main">
+  <a href="/" class="navbar-brand"></a>
+  <button class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarNav" class="collapse navbar-collapse flex-column" style="align-items:left;margin-left:50px">
+
+    <div class="input-group w-75">
+      <input  class="form-control" id="searchTerm" type="text" name="searchTerm" [(ngModel)]="searchTerm" (keyup) ="mudaValor()">
+      <span class="bg-warning" (click)="search()">
+        <i class="fa fa-search"></i>
+      </span>
+    </div>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">
+
+      </a>
+    </li>
+
+    <div *ngIf='token' ngbDropdown class="d-inline-block">
+      <li class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>User</li>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <li *ngIf="login" ngbDropdownItem>Profile</li>
+        <li ngbDropdownItem routerLink="login" routerLinkActive="login" ><a href="/login">Log In</a></li>
+        <li *ngIf="login" ngbDropdownItem>LogOut</li>
+      </div>
+    </div>
+    <li *ngIf='!token' class="btn btn-outline-light" id="dropdownBasic1">
+      <a href="/register">Register</a>
+    </li>
+
+
+
+
+    <li class="btn btn-info">
+      <a (click)="collapse()" routerLink="/cart" routerLinkActive></a>
+      <i class="fa fa-shopping-cart"></i>
+    </li>
+  </ul>
+</nav>

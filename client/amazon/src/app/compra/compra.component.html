@@ -1,0 +1,50 @@
+<app-message>
+
+</app-message>
+<div class="card">
+    <div class="card-title">
+        <h4 class="display-4 text-center"> Carrinho</h4>
+    </div>
+    <div class="card-body">
+
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-striped" style='background-color:lightslategrey'>
+                <thead>
+
+                    <tr>
+                        <th>
+                            Titulo
+                        </th>
+                        <th>
+                            Preco
+                        </th>
+                        <th>
+                            Descricao
+                        </th>
+                </thead>
+                <tbody style="background-color:dimgrey">
+                    <tr *ngFor="let produto of search.compra.produtos">
+
+                        <td style="width:33%">
+                            {{produto.titulo}}
+                        </td>
+                        <td style="width:33%">
+                            {{produto.preco}}
+                        </td>
+                        <td style="width:33%">
+                            {{produto.descricao}}
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="card-bottom">
+        <h3 class="display-4">Preço: {{compra.valor}}</h3>
+        <button (click)="confirmaCompra()" class="btn btn-primary btn-block">
+            Confirmar Compra
+        </button>
+    </div>
+
+</div>
